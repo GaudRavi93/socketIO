@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.17.0",
     "nodemon": "^1.19.0",
     "socket.io": "^4.5.4"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
