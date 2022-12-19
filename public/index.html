@@ -26,7 +26,7 @@
       var totalPrice = 0
       product.forEach(p => {
         console.log(p);
-        totalPrice += p.priceAfterPromotion ? p.priceAfterPromotion : p.priceAfterDiscount
+        totalPrice += p.priceAfterPromotion ? p.priceAfterPromotion * p.quantity : p.priceAfterDiscount * p.quantity
         content += `
           <div class="row justify-content-center mb-3">
           <div class="col-md-12 col-xl-10">
@@ -35,7 +35,7 @@
                 <div class="row">
                   <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                     <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                      <img src="${p.product.Files[0]?.link}" onerror="this.onerror=null;this.src='/public/assets/default_product_icon.svg';"class="w-100" />
+                     <img src="${p.variant?.Product?.Files[0]?.link}" onerror="this.onerror=null;this.src='https://www.bedrockcity.com/content/images/thumbs/default-image_550.png';"class="w-100" />
                       <a href="#!">
                         <div class="hover-overlay">
                           <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -52,7 +52,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                       </div>
-                      <span>310</span>
+                      <span>Quantity :- ${p.quantity} </span>
                     </div>
                     <div class="mt-1 mb-0 text-muted small">
                       <span>100% cotton</span>
@@ -86,9 +86,6 @@
                     <h6 class="text-success">Free shipping</h6>
                     <div class="d-flex flex-column mt-4">
                       <button class="btn btn-primary btn-sm" type="button">Details</button>
-                      <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                        Add to wishlist
-                      </button>
                     </div>
                   </div>
                 </div>
