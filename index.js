@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     let addedProducts = [];
     socket.on('add-product', (data) => {
-        addedProducts.push(JSON.parse(data.product))
+        addedProducts = JSON.parse(data.product)
         io.emit( 'display-product', addedProducts );
     });
     socket.on('clear-cart', (data) => {
